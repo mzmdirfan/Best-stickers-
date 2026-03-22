@@ -5,161 +5,160 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best Stickers</title>
 
-<!-- Vintage Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Rye&family=Playfair+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    background: #f4e4c1;
-    font-family: 'Playfair Display', serif;
-    color: #3b2f2f;
+    background: #faf8f5;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
 }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 30px 20px;
-    background: #e6d3a3;
-    border-bottom: 4px solid #5a3e2b;
-}
-
-header h1 {
-    font-family: 'Rye', cursive;
-    font-size: 48px;
-    letter-spacing: 3px;
-}
-
-header p {
-    font-style: italic;
-}
-
-/* Section */
+/* Center Layout */
 .container {
-    max-width: 1100px;
+    max-width: 700px;
     margin: auto;
-    padding: 30px 20px;
-}
-
-/* Catalog Grid */
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-
-/* Product Card */
-.product {
-    background: #fff8dc;
-    border: 2px solid #5a3e2b;
-    padding: 15px;
+    padding: 40px 20px;
     text-align: center;
-    box-shadow: 4px 4px 0 #5a3e2b;
+}
+
+/* Title */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* Divider */
+.divider {
+    width: 60px;
+    height: 2px;
+    background: #ccc;
+    margin: 20px auto;
+}
+
+/* Section Title */
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    margin: 30px 0 10px;
+}
+
+/* Product */
+.product {
+    margin: 40px 0;
 }
 
 .product img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border: 2px solid #5a3e2b;
+    border-radius: 8px;
 }
 
 .product h3 {
-    font-family: 'Rye', cursive;
-    margin: 10px 0;
+    margin-top: 15px;
+    font-family: 'Playfair Display';
 }
 
 .price {
-    font-weight: bold;
-    margin: 10px 0;
+    margin: 5px 0;
+    font-size: 14px;
+    color: #777;
 }
 
 .btn {
-    background: #5a3e2b;
-    color: #fff;
-    padding: 8px 15px;
-    border: none;
+    margin-top: 10px;
+    padding: 8px 20px;
+    border: 1px solid #333;
+    background: transparent;
     cursor: pointer;
-    font-family: 'Rye', cursive;
 }
 
 .btn:hover {
-    background: #3b2f2f;
+    background: #333;
+    color: white;
 }
 
-/* About Section */
+/* About */
 .about {
-    margin-top: 40px;
-    background: #fff8dc;
-    padding: 20px;
-    border: 2px solid #5a3e2b;
-    box-shadow: 4px 4px 0 #5a3e2b;
+    margin-top: 50px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
 }
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-    background: #e6d3a3;
-    border-top: 4px solid #5a3e2b;
+    margin-top: 50px;
+    font-size: 12px;
+    color: #aaa;
 }
 </style>
+
 </head>
 
 <body>
 
-<header>
+<div class="container">
+
     <h1>Best Stickers</h1>
-    <p>~ Finest Stickers in the Wild West ~</p>
-</header>
+    <div class="subtitle">PREMIUM COLLECTION</div>
 
-<section class="container">
-    <h2 style="text-align:center; font-family:'Rye';">Sticker Catalog</h2>
+    <div class="divider"></div>
 
-    <div class="products">
+    <h2>Our Stickers</h2>
 
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="">
-            <h3>Vintage Cowboy</h3>
-            <p>Classic western cowboy sticker.</p>
-            <div class="price">₹99</div>
-            <button class="btn">Order Now</button>
-        </div>
-
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="">
-            <h3>Wild Horse</h3>
-            <p>Symbol of freedom and strength.</p>
-            <div class="price">₹149</div>
-            <button class="btn">Order Now</button>
-        </div>
-
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="">
-            <h3>Desert Skull</h3>
-            <p>Rugged desert outlaw style.</p>
-            <div class="price">₹129</div>
-            <button class="btn">Order Now</button>
-        </div>
-
+    <!-- Product 1 -->
+    <div class="product">
+        <img src="images/cowboy.png">
+        <h3>Vintage Cowboy</h3>
+        <div class="price">₹99</div>
+        <button class="btn">Order</button>
     </div>
+
+    <div class="divider"></div>
+
+    <!-- Product 2 -->
+    <div class="product">
+        <img src="images/horse.jpg">
+        <h3>Wild Horse</h3>
+        <div class="price">₹149</div>
+        <button class="btn">Order</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Product 3 -->
+    <div class="product">
+        <img src="images/skull.png">
+        <h3>Desert Skull</h3>
+        <div class="price">₹129</div>
+        <button class="btn">Order</button>
+    </div>
+
+    <div class="divider"></div>
 
     <!-- ABOUT -->
+    <h2>About</h2>
+
     <div class="about">
-        <h2 style="font-family:'Rye'; text-align:center;">About Our Shop</h2>
-        <p>
-            Welcome to Best Stickers, where the spirit of the Wild West lives on.
-            We craft high-quality vintage-style stickers inspired by cowboys,
-            deserts, and rugged frontier life.
-        </p>
+        Best Stickers brings you high-quality designs inspired by creativity,
+        culture, and style. Simple, clean, and made for everyone.
     </div>
 
-</section>
+    <footer>
+        © 2026 Best Stickers
+    </footer>
 
-<footer>
-    <p>© 2026 Best Stickers | Ride Bold, Stick Proud</p>
-</footer>
+</div>
 
 </body>
 </html>
