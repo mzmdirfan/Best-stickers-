@@ -8,10 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+
 body{
     font-family:'Inter',sans-serif;
     background: radial-gradient(circle at top, #1a1a1a, #000);
@@ -34,7 +33,6 @@ nav{
 
 nav h2{
     font-family:'Playfair Display';
-    letter-spacing:2px;
 }
 
 nav a{
@@ -65,7 +63,6 @@ nav a:hover{color:#fff;}
 
 .hero p{
     color:#888;
-    margin-top:10px;
 }
 
 /* SECTION */
@@ -87,14 +84,13 @@ nav a:hover{color:#fff;}
     transform:translateY(0);
 }
 
-/* PRODUCT GRID */
+/* PRODUCTS */
 .products{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:30px;
 }
 
-/* CARD */
 .card{
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(20px);
@@ -108,21 +104,22 @@ nav a:hover{color:#fff;}
     transform:translateY(-15px) scale(1.03);
 }
 
-/* IMAGE */
 .card img{
     width:100%;
     border-radius:15px;
     transition:0.5s;
+    filter: contrast(110%) brightness(95%) saturate(110%);
 }
+
 .card img:hover{
     transform:scale(1.08);
 }
 
-/* TEXT */
 .card h3{
     margin-top:15px;
     font-family:'Playfair Display';
 }
+
 .price{
     color:#bbb;
 }
@@ -138,6 +135,7 @@ nav a:hover{color:#fff;}
     border-radius:30px;
     transition:0.3s;
 }
+
 .btn:hover{
     transform:scale(1.1);
 }
@@ -150,7 +148,7 @@ nav a:hover{color:#fff;}
     margin:auto;
 }
 
-/* PARALLAX BG GLOW */
+/* GLOW */
 .glow{
     position:fixed;
     width:400px;
@@ -178,7 +176,6 @@ footer{
     padding:40px;
     color:#666;
 }
-
 </style>
 </head>
 
@@ -210,7 +207,7 @@ footer{
     <div class="products">
 
         <div class="card">
-            <img src="<https://images.unsplash.com/photo-1519681393784-d120267933ba">
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
             <h3>Vintage Cowboy</h3>
             <div class="price">₹99</div>
             <button class="btn" onclick="order('Vintage Cowboy')">Order</button>
@@ -247,12 +244,7 @@ footer{
 </footer>
 
 <!-- WHATSAPP -->
-<a id="wa" class="whatsapp">💬</a>
-
-<!-- AUDIO -->
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX">💬</a>
 
 <script>
 
@@ -279,11 +271,6 @@ function order(product){
     let msg = `Hello, I want to order ${product}`;
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`);
 }
-
-/* MUSIC (click anywhere to play) */
-document.body.addEventListener('click', ()=>{
-    document.getElementById("music").play();
-}, {once:true});
 
 </script>
 
