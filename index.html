@@ -5,191 +5,178 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best Stickers</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 
 /* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+    font-family:'Inter',sans-serif;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color:#fff;
+    overflow-x:hidden;
 }
 
-html {
-    scroll-behavior: smooth;
+/* NAV */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    backdrop-filter: blur(15px);
+    background: rgba(0,0,0,0.3);
+    z-index:1000;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(180deg, #faf8f5, #f0ebe5);
-    color: #222;
-    overflow-x: hidden;
+nav h2{
+    font-family:'Playfair Display';
+    letter-spacing:2px;
 }
 
-/* SCROLL BAR */
-#progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    background: #222;
-    width: 0%;
-    z-index: 9999;
+nav a{
+    color:#aaa;
+    margin-left:20px;
+    text-decoration:none;
 }
 
-/* NAVBAR */
-nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    backdrop-filter: blur(10px);
-    background: rgba(255,255,255,0.6);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    z-index: 999;
-}
-
-nav h2 {
-    font-family: 'Playfair Display';
-}
-
-nav a {
-    text-decoration: none;
-    color: #333;
-    margin-left: 20px;
-}
+nav a:hover{color:#fff;}
 
 /* HERO */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
 }
 
-.hero h1 {
-    font-size: 48px;
-    font-family: 'Playfair Display';
+.hero h1{
+    font-size:60px;
+    font-family:'Playfair Display';
+    background: linear-gradient(90deg,#fff,#aaa);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-.hero p {
-    margin-top: 10px;
-    color: #777;
+.hero p{
+    color:#888;
+    margin-top:10px;
 }
 
-/* CONTAINER */
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 80px 20px;
+/* SECTION */
+.section{
+    max-width:1100px;
+    margin:auto;
+    padding:120px 20px;
+    text-align:center;
+}
+
+/* REVEAL */
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1.2s ease;
+}
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
 }
 
 /* PRODUCT GRID */
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
 }
 
 /* CARD */
-.card {
-    background: rgba(255,255,255,0.6);
-    backdrop-filter: blur(10px);
-    padding: 15px;
-    border-radius: 15px;
-    transition: 0.4s;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+.card{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border-radius:20px;
+    padding:20px;
+    transition:0.5s;
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
 
-.card:hover {
-    transform: translateY(-10px);
+.card:hover{
+    transform:translateY(-15px) scale(1.03);
 }
 
-.card img {
-    width: 100%;
-    border-radius: 10px;
-    transition: 0.5s;
+/* IMAGE */
+.card img{
+    width:100%;
+    border-radius:15px;
+    transition:0.5s;
+}
+.card img:hover{
+    transform:scale(1.08);
 }
 
-.card img:hover {
-    transform: scale(1.05);
+/* TEXT */
+.card h3{
+    margin-top:15px;
+    font-family:'Playfair Display';
 }
-
-.card h3 {
-    margin-top: 10px;
-    font-family: 'Playfair Display';
-}
-
-.price {
-    color: #666;
+.price{
+    color:#bbb;
 }
 
 /* BUTTON */
-.btn {
-    margin-top: 10px;
-    padding: 10px 20px;
-    border: none;
-    background: #222;
-    color: white;
-    cursor: pointer;
+.btn{
+    margin-top:10px;
+    padding:10px 25px;
+    border:none;
+    background:linear-gradient(90deg,#444,#111);
+    color:#fff;
+    cursor:pointer;
+    border-radius:30px;
+    transition:0.3s;
 }
-
-/* SECTION ANIMATION */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 1s;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+.btn:hover{
+    transform:scale(1.1);
 }
 
 /* ABOUT */
-.about {
-    text-align: center;
-    line-height: 1.8;
-    color: #555;
+.about{
+    color:#aaa;
+    line-height:1.8;
+    max-width:600px;
+    margin:auto;
 }
 
-/* FLOATING PARTICLES */
-.particle {
-    position: fixed;
-    width: 6px;
-    height: 6px;
-    background: #ccc;
-    border-radius: 50%;
-    animation: float 10s linear infinite;
+/* PARALLAX BG GLOW */
+.glow{
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:radial-gradient(circle,#444,transparent);
+    filter:blur(120px);
+    z-index:-1;
 }
 
-@keyframes float {
-    from { transform: translateY(100vh); }
-    to { transform: translateY(-10vh); }
-}
-
-/* WHATSAPP BUTTON */
-.whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 12px 15px;
-    border-radius: 50%;
-    font-size: 18px;
-    text-decoration: none;
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    padding:15px;
+    border-radius:50%;
+    text-decoration:none;
+    font-size:20px;
 }
 
 /* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #888;
+footer{
+    text-align:center;
+    padding:40px;
+    color:#666;
 }
 
 </style>
@@ -197,7 +184,9 @@ footer {
 
 <body>
 
-<div id="progress"></div>
+<!-- GLOW EFFECT -->
+<div class="glow" style="top:10%; left:10%;"></div>
+<div class="glow" style="bottom:10%; right:10%;"></div>
 
 <!-- NAV -->
 <nav>
@@ -211,12 +200,12 @@ footer {
 <!-- HERO -->
 <section class="hero">
     <h1>Best Stickers</h1>
-    <p>Premium Collection</p>
+    <p>Luxury Sticker Experience</p>
 </section>
 
 <!-- PRODUCTS -->
-<section id="products" class="container reveal">
-    <h2 style="text-align:center; font-family:Playfair Display;">Our Stickers</h2>
+<section id="products" class="section reveal">
+    <h2 style="font-family:Playfair Display;">Our Collection</h2>
 
     <div class="products">
 
@@ -224,31 +213,32 @@ footer {
             <img src="images/cowboy.png">
             <h3>Vintage Cowboy</h3>
             <div class="price">₹99</div>
-            <button class="btn">Order</button>
+            <button class="btn" onclick="order('Vintage Cowboy')">Order</button>
         </div>
 
         <div class="card">
             <img src="images/horse.jpg">
             <h3>Wild Horse</h3>
             <div class="price">₹149</div>
-            <button class="btn">Order</button>
+            <button class="btn" onclick="order('Wild Horse')">Order</button>
         </div>
 
         <div class="card">
             <img src="images/skull.png">
             <h3>Desert Skull</h3>
             <div class="price">₹129</div>
-            <button class="btn">Order</button>
+            <button class="btn" onclick="order('Desert Skull')">Order</button>
         </div>
 
     </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="container reveal">
-    <h2 style="text-align:center; font-family:Playfair Display;">About</h2>
+<section id="about" class="section reveal">
+    <h2 style="font-family:Playfair Display;">About</h2>
     <div class="about">
-        We create premium stickers with modern design and smooth experience.
+        Best Stickers delivers premium quality designs with modern aesthetics,
+        crafted for style lovers.
     </div>
 </section>
 
@@ -257,35 +247,43 @@ footer {
 </footer>
 
 <!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX">💬</a>
+<a id="wa" class="whatsapp">💬</a>
+
+<!-- AUDIO -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 
-/* SCROLL PROGRESS */
-window.addEventListener('scroll', () => {
-    let scroll = document.documentElement.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    document.getElementById('progress').style.width = (scroll/height)*100 + "%";
-});
-
-/* REVEAL ANIMATION */
-function reveal() {
-    document.querySelectorAll('.reveal').forEach(el => {
-        if(el.getBoundingClientRect().top < window.innerHeight - 100){
-            el.classList.add('active');
+/* REVEAL */
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('active');
         }
     });
-}
-window.addEventListener('scroll', reveal);
+});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-/* PARTICLES */
-for(let i=0;i<20;i++){
-    let p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random()*100 + "vw";
-    p.style.animationDuration = (5 + Math.random()*5) + "s";
-    document.body.appendChild(p);
+/* PARALLAX GLOW */
+window.addEventListener('mousemove', e=>{
+    document.querySelectorAll('.glow').forEach(g=>{
+        g.style.transform = `translate(${e.clientX/50}px, ${e.clientY/50}px)`;
+    });
+});
+
+/* WHATSAPP ORDER */
+function order(product){
+    let number = "91XXXXXXXXXX";
+    let msg = `Hello, I want to order ${product}`;
+    window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`);
 }
+
+/* MUSIC (click anywhere to play) */
+document.body.addEventListener('click', ()=>{
+    document.getElementById("music").play();
+}, {once:true});
 
 </script>
 
