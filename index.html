@@ -51,6 +51,23 @@ nav a:hover{color:#fff;}
     align-items:center;
     flex-direction:column;
     text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+/* PARTICLE CANVAS */
+#particles{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:1;
+}
+
+.hero h1, .hero p{
+    position:relative;
+    z-index:2;
 }
 
 .hero h1{
@@ -59,10 +76,6 @@ nav a:hover{color:#fff;}
     background: linear-gradient(90deg,#fff,#aaa);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-}
-
-.hero p{
-    color:#888;
 }
 
 /* SECTION */
@@ -108,7 +121,6 @@ nav a:hover{color:#fff;}
     width:100%;
     border-radius:15px;
     transition:0.5s;
-    filter: contrast(110%) brightness(95%) saturate(110%);
 }
 
 .card img:hover{
@@ -133,11 +145,6 @@ nav a:hover{color:#fff;}
     color:#fff;
     cursor:pointer;
     border-radius:30px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    transform:scale(1.1);
 }
 
 /* ABOUT */
@@ -146,16 +153,6 @@ nav a:hover{color:#fff;}
     line-height:1.8;
     max-width:600px;
     margin:auto;
-}
-
-/* GLOW */
-.glow{
-    position:fixed;
-    width:400px;
-    height:400px;
-    background:radial-gradient(circle,#444,transparent);
-    filter:blur(120px);
-    z-index:-1;
 }
 
 /* WHATSAPP */
@@ -181,10 +178,6 @@ footer{
 
 <body>
 
-<!-- GLOW EFFECT -->
-<div class="glow" style="top:10%; left:10%;"></div>
-<div class="glow" style="bottom:10%; right:10%;"></div>
-
 <!-- NAV -->
 <nav>
     <h2>Best Stickers</h2>
@@ -196,6 +189,7 @@ footer{
 
 <!-- HERO -->
 <section class="hero">
+    <canvas id="particles"></canvas>
     <h1>Best Stickers</h1>
     <p>Luxury Sticker Experience</p>
 </section>
@@ -234,8 +228,7 @@ footer{
 <section id="about" class="section reveal">
     <h2 style="font-family:Playfair Display;">About</h2>
     <div class="about">
-        Best Stickers delivers premium quality designs with modern aesthetics,
-        crafted for style lovers.
+        Best Stickers delivers premium quality designs with modern aesthetics.
     </div>
 </section>
 
@@ -248,6 +241,63 @@ footer{
 
 <script>
 
+/* PARTICLES */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resize();
+
+let particles = [];
+for(let i=0;i<80;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        size:Math.random()*2+1,
+        speedX:(Math.random()-0.5)*0.5,
+        speedY:(Math.random()-0.5)*0.5
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach(p=>{
+        p.x+=p.speedX;
+        p.y+=p.speedY;
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+        ctx.fillStyle="white";
+        ctx.fill();
+
+        particles.forEach(p2=>{
+            let dx=p.x-p2.x;
+            let dy=p.y-p2.y;
+            let dist=Math.sqrt(dx*dx+dy*dy);
+
+            if(dist<100){
+                ctx.beginPath();
+                ctx.strokeStyle="rgba(255,255,255,0.1)";
+                ctx.moveTo(p.x,p.y);
+                ctx.lineTo(p2.x,p2.y);
+                ctx.stroke();
+            }
+        });
+
+        if(p.x<0)p.x=canvas.width;
+        if(p.x>canvas.width)p.x=0;
+        if(p.y<0)p.y=canvas.height;
+        if(p.y>canvas.height)p.y=0;
+    });
+
+    requestAnimationFrame(animate);
+}
+animate();
+
 /* REVEAL */
 const observer = new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
@@ -258,19 +308,14 @@ const observer = new IntersectionObserver(entries=>{
 });
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-/* PARALLAX GLOW */
-window.addEventListener('mousemove', e=>{
-    document.querySelectorAll('.glow').forEach(g=>{
-        g.style.transform = `translate(${e.clientX/50}px, ${e.clientY/50}px)`;
-    });
-});
-
-/* WHATSAPP ORDER */
+/* WHATSAPP */
 function order(product){
-    let number = "91XXXXXXXXXX";
-    let msg = `Hello, I want to order ${product}`;
+    let number="91XXXXXXXXXX";
+    let msg=`Hello, I want to order ${product}`;
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`);
 }
+
+window.addEventListener("resize", resize);
 
 </script>
 
