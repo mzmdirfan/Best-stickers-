@@ -1,190 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Shop</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Stickers</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<!-- Vintage Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Playfair+Display&display=swap" rel="stylesheet">
 
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-        }
+<style>
+body {
+    margin: 0;
+    background: #f4e4c1;
+    font-family: 'Playfair Display', serif;
+    color: #3b2f2f;
+}
 
-        header {
-            background: #111;
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-        }
+/* Header */
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background: #e6d3a3;
+    border-bottom: 4px solid #5a3e2b;
+}
 
-        header h1 {
-            font-size: 28px;
-        }
+header h1 {
+    font-family: 'Rye', cursive;
+    font-size: 48px;
+    letter-spacing: 3px;
+}
 
-        nav {
-            margin-top: 10px;
-        }
+header p {
+    font-style: italic;
+}
 
-        nav a {
-            color: #ddd;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 16px;
-        }
+/* Section */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px;
+}
 
-        nav a:hover {
-            color: #fff;
-        }
+/* Catalog Grid */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
 
-        .container {
-            padding: 40px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
+/* Product Card */
+.product {
+    background: #fff8dc;
+    border: 2px solid #5a3e2b;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 4px 4px 0 #5a3e2b;
+}
 
-        h2 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border: 2px solid #5a3e2b;
+}
 
-        /* Products */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+.product h3 {
+    font-family: 'Rye', cursive;
+    margin: 10px 0;
+}
 
-        .product {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
+.price {
+    font-weight: bold;
+    margin: 10px 0;
+}
 
-        .product img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
+.btn {
+    background: #5a3e2b;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Rye', cursive;
+}
 
-        .product h3 {
-            margin: 10px 0;
-        }
+.btn:hover {
+    background: #3b2f2f;
+}
 
-        .product p {
-            font-size: 14px;
-            color: #666;
-        }
+/* About Section */
+.about {
+    margin-top: 40px;
+    background: #fff8dc;
+    padding: 20px;
+    border: 2px solid #5a3e2b;
+    box-shadow: 4px 4px 0 #5a3e2b;
+}
 
-        .price {
-            margin: 10px 0;
-            font-weight: bold;
-            color: #000;
-        }
-
-        .btn {
-            background: #111;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #444;
-        }
-
-        /* About */
-        .about {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            line-height: 1.6;
-        }
-
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            padding: 15px;
-            background: #111;
-            color: white;
-        }
-    </style>
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    background: #e6d3a3;
+    border-top: 4px solid #5a3e2b;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>My Shop</h1>
-    <nav>
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-    </nav>
+    <h1>Best Stickers</h1>
+    <p>~ Finest Stickers in the Wild West ~</p>
 </header>
 
-<!-- PRODUCTS -->
-<section id="products" class="container">
-    <h2>Our Products</h2>
+<section class="container">
+    <h2 style="text-align:center; font-family:'Rye';">Sticker Catalog</h2>
 
     <div class="products">
 
         <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Product 1">
-            <h3>Product 1</h3>
-            <p>High quality product description here.</p>
-            <div class="price">₹499</div>
-            <button class="btn">Buy Now</button>
+            <img src="https://via.placeholder.com/300" alt="">
+            <h3>Vintage Cowboy</h3>
+            <p>Classic western cowboy sticker.</p>
+            <div class="price">₹99</div>
+            <button class="btn">Order Now</button>
         </div>
 
         <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Product 2">
-            <h3>Product 2</h3>
-            <p>Awesome product for daily use.</p>
-            <div class="price">₹799</div>
-            <button class="btn">Buy Now</button>
+            <img src="https://via.placeholder.com/300" alt="">
+            <h3>Wild Horse</h3>
+            <p>Symbol of freedom and strength.</p>
+            <div class="price">₹149</div>
+            <button class="btn">Order Now</button>
         </div>
 
         <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Product 3">
-            <h3>Product 3</h3>
-            <p>Best selling product.</p>
-            <div class="price">₹999</div>
-            <button class="btn">Buy Now</button>
+            <img src="https://via.placeholder.com/300" alt="">
+            <h3>Desert Skull</h3>
+            <p>Rugged desert outlaw style.</p>
+            <div class="price">₹129</div>
+            <button class="btn">Order Now</button>
         </div>
 
     </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about" class="container">
-    <h2>About Us</h2>
-
+    <!-- ABOUT -->
     <div class="about">
+        <h2 style="font-family:'Rye'; text-align:center;">About Our Shop</h2>
         <p>
-            Welcome to My Shop! We provide high-quality products at affordable prices.
-            Our goal is to deliver the best experience to our customers.
-        </p>
-
-        <p>
-            This website is built using simple HTML and CSS and hosted on GitHub Pages.
+            Welcome to Best Stickers, where the spirit of the Wild West lives on.
+            We craft high-quality vintage-style stickers inspired by cowboys,
+            deserts, and rugged frontier life.
         </p>
     </div>
+
 </section>
 
 <footer>
-    <p>© 2026 My Shop | All Rights Reserved</p>
+    <p>© 2026 Best Stickers | Ride Bold, Stick Proud</p>
 </footer>
 
 </body>
