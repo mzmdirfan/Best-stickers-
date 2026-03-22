@@ -5,135 +5,191 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best Stickers</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 
-/* Smooth scroll */
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
-/* Reset */
 body {
-    margin: 0;
-    background: #faf8f5;
-    font-family: 'Montserrat', sans-serif;
-    color: #333;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, #faf8f5, #f0ebe5);
+    color: #222;
+    overflow-x: hidden;
 }
 
-/* Loader */
-.loader {
+/* SCROLL BAR */
+#progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #222;
+    width: 0%;
+    z-index: 9999;
+}
+
+/* NAVBAR */
+nav {
     position: fixed;
     width: 100%;
-    height: 100%;
-    background: #faf8f5;
+    top: 0;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.6);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 999;
+}
+
+nav h2 {
+    font-family: 'Playfair Display';
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    font-family: 'Playfair Display';
-    font-size: 24px;
-}
-
-/* Container */
-.container {
-    max-width: 700px;
-    margin: auto;
-    padding: 60px 20px;
     text-align: center;
+    flex-direction: column;
 }
 
-/* Title */
-h1 {
+.hero h1 {
+    font-size: 48px;
     font-family: 'Playfair Display';
-    font-size: 42px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1s ease forwards;
 }
 
-.subtitle {
-    letter-spacing: 3px;
-    color: #888;
-    margin-bottom: 30px;
-    opacity: 0;
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 0.3s;
+.hero p {
+    margin-top: 10px;
+    color: #777;
 }
 
-/* Divider */
-.divider {
-    width: 60px;
-    height: 2px;
-    background: #ccc;
-    margin: 20px auto;
+/* CONTAINER */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 80px 20px;
 }
 
-/* Section animation */
-.section {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 0.8s ease;
+/* PRODUCT GRID */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
 }
 
-.section.show {
-    opacity: 1;
-    transform: translateY(0);
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 15px;
+    transition: 0.4s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-/* Product */
-.product {
-    margin: 50px 0;
+.card:hover {
+    transform: translateY(-10px);
 }
 
-.product img {
+.card img {
     width: 100%;
     border-radius: 10px;
     transition: 0.5s;
 }
 
-.product img:hover {
+.card img:hover {
     transform: scale(1.05);
 }
 
-.product h3 {
+.card h3 {
+    margin-top: 10px;
     font-family: 'Playfair Display';
-    margin-top: 15px;
 }
 
 .price {
-    color: #777;
+    color: #666;
 }
 
-/* Button */
+/* BUTTON */
 .btn {
     margin-top: 10px;
-    padding: 10px 25px;
-    border: 1px solid #333;
-    background: transparent;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #333;
+    padding: 10px 20px;
+    border: none;
+    background: #222;
     color: white;
+    cursor: pointer;
 }
 
-/* About */
+/* SECTION ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ABOUT */
 .about {
-    margin-top: 50px;
+    text-align: center;
     line-height: 1.8;
     color: #555;
 }
 
-/* Animations */
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* FLOATING PARTICLES */
+.particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #ccc;
+    border-radius: 50%;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #888;
 }
 
 </style>
@@ -141,76 +197,95 @@ h1 {
 
 <body>
 
-<div class="loader" id="loader">Loading...</div>
+<div id="progress"></div>
 
-<div class="container">
+<!-- NAV -->
+<nav>
+    <h2>Best Stickers</h2>
+    <div>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+    </div>
+</nav>
 
+<!-- HERO -->
+<section class="hero">
     <h1>Best Stickers</h1>
-    <div class="subtitle">PREMIUM COLLECTION</div>
+    <p>Premium Collection</p>
+</section>
 
-    <div class="divider"></div>
+<!-- PRODUCTS -->
+<section id="products" class="container reveal">
+    <h2 style="text-align:center; font-family:Playfair Display;">Our Stickers</h2>
 
-    <!-- PRODUCTS -->
-    <div class="section">
-        <div class="product">
+    <div class="products">
+
+        <div class="card">
             <img src="images/cowboy.png">
             <h3>Vintage Cowboy</h3>
             <div class="price">₹99</div>
             <button class="btn">Order</button>
         </div>
-    </div>
 
-    <div class="divider"></div>
-
-    <div class="section">
-        <div class="product">
+        <div class="card">
             <img src="images/horse.jpg">
             <h3>Wild Horse</h3>
             <div class="price">₹149</div>
             <button class="btn">Order</button>
         </div>
-    </div>
 
-    <div class="divider"></div>
-
-    <div class="section">
-        <div class="product">
+        <div class="card">
             <img src="images/skull.png">
             <h3>Desert Skull</h3>
             <div class="price">₹129</div>
             <button class="btn">Order</button>
         </div>
-    </div>
 
-    <!-- ABOUT -->
-    <div class="section">
-        <div class="divider"></div>
-        <h2 style="font-family:Playfair Display;">About</h2>
-        <div class="about">
-            Best Stickers brings premium quality designs with modern aesthetics and smooth experience.
-        </div>
     </div>
+</section>
 
-</div>
+<!-- ABOUT -->
+<section id="about" class="container reveal">
+    <h2 style="text-align:center; font-family:Playfair Display;">About</h2>
+    <div class="about">
+        We create premium stickers with modern design and smooth experience.
+    </div>
+</section>
+
+<footer>
+    © 2026 Best Stickers
+</footer>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX">💬</a>
 
 <script>
 
-/* Loader */
-window.onload = function() {
-    document.getElementById("loader").style.display = "none";
-}
-
-/* Scroll animation */
-const sections = document.querySelectorAll('.section');
-
+/* SCROLL PROGRESS */
 window.addEventListener('scroll', () => {
-    sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100) {
-            sec.classList.add('show');
+    let scroll = document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById('progress').style.width = (scroll/height)*100 + "%";
+});
+
+/* REVEAL ANIMATION */
+function reveal() {
+    document.querySelectorAll('.reveal').forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight - 100){
+            el.classList.add('active');
         }
     });
-});
+}
+window.addEventListener('scroll', reveal);
+
+/* PARTICLES */
+for(let i=0;i<20;i++){
+    let p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random()*100 + "vw";
+    p.style.animationDuration = (5 + Math.random()*5) + "s";
+    document.body.appendChild(p);
+}
 
 </script>
 
